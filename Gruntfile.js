@@ -105,7 +105,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'jade',
-                    dest: 'jade',
+                    dest: '',
                     src: '{,*/}*.jade',
                     ext: '.html'
                 }]
