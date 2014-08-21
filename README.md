@@ -1,6 +1,8 @@
 # reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.png?branch=master)](https://travis-ci.org/hakimel/reveal.js)
 
-A framework for easily creating beautiful presentations using HTML. [Check out the live demo](http://lab.hakim.se/reveal-js/). This is a fork but using Jade as the 
+A framework for easily creating beautiful presentations using HTML. [Check out the live demo](http://lab.hakim.se/reveal-js/). This is a fork but using Jade as the templating language.
+
+All templates can be found in the jade folder and changes to slide should be made there.
 
 ```html
 sudo git clone https://github.com/sononix/revealjs-jade.git
