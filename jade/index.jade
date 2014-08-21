@@ -15,7 +15,7 @@ head
     link(rel='stylesheet', href='lib/css/zenburn.css')
     //
        If the query includes 'print-pdf', include the PDF print sheet 
-    script
+    script.
       if( window.location.search.match( /print-pdf/gi ) ) {
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
@@ -31,7 +31,7 @@ head
          Any section element inside of this container is displayed as a slide 
       .slides
         section
-          h1 Reveal.js
+          h1 Martin 
           h3 HTML Presentations Made Easy
           p
             small
@@ -104,17 +104,8 @@ head
             li One is smaller than...
             li Two is smaller than...
             li Three!
-        section(data-markdown='data-markdown')
-          script(type='text/template')
-            ## Markdown support
-            For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-            ```
-            <section data-markdown>
-            ## Markdown support
-            For those of you who like that sort of thing.
-            Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-            </section>
-            ```
+        
+      
         section#transitions
           h2 Transition Styles
           p
@@ -269,7 +260,7 @@ head
             a(href='https://github.com/hakimel/reveal.js#pdf-export') exported to PDF
             | , below is an example that's been uploaded to SlideShare.
           iframe#slideshare(src='http://www.slideshare.net/slideshow/embed_code/13872948', width='455', height='356', style='margin: 0; overflow: hidden; border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;', allowfullscreen='allowfullscreen')  
-          script
+          script.
             document.getElementById('slideshare').attributeName = 'allowfullscreen';
         section
           h2 Take a Moment
@@ -288,9 +279,10 @@ head
         section
           h1 THE END
           h3 BY Hakim El Hattab / hakim.se
-    script(src='lib/js/head.min.js')
-    script(src='js/reveal.min.js')
-    script
+
+    script(src="lib/js/head.min.js")
+    script(src="js/reveal.min.js")
+    script.
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
@@ -313,3 +305,4 @@ head
       { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
       ]
       });
+script(src="http://localhost:35729/livereload.js")
