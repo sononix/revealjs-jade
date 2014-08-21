@@ -1,6 +1,8 @@
 /* global module:false */
 module.exports = function(grunt) {
 	var port = grunt.option('port') || 8000;
+
+	grunt.file.mkdir('jade');
 	// Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -96,6 +98,21 @@ module.exports = function(grunt) {
 			]
 		},
 
+		jade: {
+            dist: {
+                options: {
+                    pretty: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'jade',
+                    dest: 'jade',
+                    src: '{,*/}*.jade',
+                    ext: '.html'
+                }]
+            }
+        },
+
 		watch: {
 			main: {
 				files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css' ],
@@ -104,7 +121,14 @@ module.exports = function(grunt) {
 			theme: {
 				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
 				tasks: 'themes'
-			}
+			},
+			jade: {
+                files: ['jade/*.jade'],
+                tasks: 'jade',
+                options: {
+      livereload: true,
+    },
+            },
 		}
 
 	});
@@ -117,10 +141,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
+	grunt.loadNpmTasks( 'grunt-contrib-jade' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
-	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit', 'jade' ] );
 
 	// Theme task
 	grunt.registerTask( 'themes', [ 'sass' ] );
@@ -129,7 +154,7 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'package', [ 'default', 'zip' ] );
 
 	// Serve presentation locally
-	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
+	grunt.registerTask( 'serve', [ 'connect', 'watch' , 'jade' ] );
 
 	// Run tests
 	grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );
