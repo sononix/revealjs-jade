@@ -19,6 +19,6 @@ edit or clone the template in the jade folder and view your creation at - note l
 http://127.0.0.1:8000 
 ```
 
-Defaults can be easily change in the Grunt.js file.
+Defaults can be easily change in the Grunt.js file...
 
 
